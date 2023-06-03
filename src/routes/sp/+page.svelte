@@ -4,18 +4,16 @@
 
 	let state = {
 		currentSequence: '',
-		language: 'swedish'
+		language: 'swedish',
+		playerScore: 0,
+		computerScore: 0
 	};
-	const playerScore = 0;
-	const computerScore = 0;
-
-	$: console.log(state);
 </script>
 
 <div class="content">
 	<div id="score-area" class="flex-row">
-		<ScoreContainer user="you" score={playerScore} />
-		<ScoreContainer user="computer" score={computerScore} />
+		<ScoreContainer user="you" score={state.playerScore} />
+		<ScoreContainer user="computer" score={state.computerScore} />
 	</div>
 
 	<div class="input-area">
