@@ -4,13 +4,12 @@
 
 	let state = {
 		currentSequence: '',
-		inputActive: true
+		language: 'swedish'
 	};
 	const playerScore = 0;
 	const computerScore = 0;
 
-	$: state, validateInput();
-	const validateInput = () => {};
+	$: console.log(state);
 </script>
 
 <div class="content">
@@ -20,7 +19,7 @@
 	</div>
 
 	<div class="input-area">
-		<TextInput {...state} on:input={validateInput} />
+		<TextInput {...state} />
 	</div>
 </div>
 

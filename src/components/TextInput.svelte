@@ -1,13 +1,27 @@
 <script>
+	import { inputIsValid } from '$lib/inputIsValid';
 	export let currentSequence;
-	export let inputActive;
+	export let language;
+	let disabled = true;
+	let textState = '';
 
 	// The most trivial input validation is made here. We only set the state if the input is valid
-	// Try to avoid ever passing invalid stuff to a higher instance
+	// Try to avoid ever passing invalid stuff to a higher
+	const validateInput = () => {
+		textState = textState.toLocaleLowerCase();
+		if (!inputIsValid(textState, language)) {
+			textState = currentSequence;
+			return;
+		}
+		currentSequence = textState;
+	};
+
+	// Disables input when correct input is sent, enables when updated
+	$: currentSequence, (disabled = !disabled);
 </script>
 
 <!-- svelte-ignore a11y-autofocus -->
-<input on:input autofocus value={currentSequence} disabled={!inputActive} />
+<input on:keyup={validateInput} autofocus {disabled} bind:value={textState} />
 
 <style>
 	input {
