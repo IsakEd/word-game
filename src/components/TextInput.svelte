@@ -1,5 +1,6 @@
 <script>
 	import { inputIsValid } from '$lib/inputIsValid';
+	import postData from '$lib/postData';
 	export let currentSequence;
 	export let language;
 	let disabled = true;
@@ -14,6 +15,7 @@
 			return;
 		}
 		currentSequence = textState;
+		postData('/sp/opponent', JSON.stringify(currentSequence));
 	};
 
 	// Disables input when correct input is sent, enables when updated
