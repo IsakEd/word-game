@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="input-area">
-		<TextInput {...state} />
+		<TextInput currentSequence={state.currentSequence} language={state.language} />
 	</div>
 </div>
 
