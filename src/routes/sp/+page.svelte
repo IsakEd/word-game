@@ -1,8 +1,9 @@
 <script>
 	import TextInput from '../../components/TextInput.svelte';
-	import ScoreContainer from '../../lib/ScoreContainer.svelte';
+	import ScoreContainer from '$lib/ScoreContainer.svelte';
 
 	let state = {
+		status: -1,
 		currentSequence: '',
 		language: 'swedish',
 		playerScore: 0,

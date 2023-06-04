@@ -21,6 +21,7 @@
 		postData('/sp/opponent', JSON.stringify(currentSequence)).then((res) => {
 			const { wordstring, status } = res;
 			textState = wordstring;
+			currentSequence = wordstring;
 			disabled = false;
 		});
 	};
@@ -37,5 +38,6 @@
 		background-color: transparent;
 		outline: none;
 		font-size: xx-large;
+		text-align: center;
 	}
 </style>
